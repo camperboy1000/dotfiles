@@ -1,11 +1,30 @@
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt beep notify
-bindkey -e
+bindkey -v
 # End of lines configured by zsh-newuser-install
+
 # The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' file-sort name
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' ignore-parents parent pwd .. directory
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' '+l:|=* r:|=*'
+zstyle ':completion:*' menu select=long-list select=0
+zstyle ':completion:*' original true
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/camperboy1000/.zshrc'
 
 autoload -Uz compinit
@@ -62,13 +81,13 @@ fi
 zshcache_time="$(date +%s%N)"
 autoload -Uz add-zsh-hook
 rehash_precmd() {
-    if [[ -a /var/cache/zsh/pacman ]]; then
-        local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
-        if (( zshcache_time < paccache_time )); then
-            rehash
-            zshcache_time="$paccache_time"
-        fi
+  if [[ -a /var/cache/zsh/pacman ]]; then
+    local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
+    if (( zshcache_time < paccache_time )); then
+      rehash
+      zshcache_time="$paccache_time"
     fi
+  fi
 }
 add-zsh-hook -Uz precmd rehash_precmd
 
@@ -77,22 +96,29 @@ eval "$(thefuck --alias)"
 eval "$(thefuck --alias FUCK)"
 
 # Insult me when I screw up
-if [ -f /etc/bash.command-not-found ]; then
-    . /etc/bash.command-not-found
+if [ -f ~/.zsh/command-not-found.zsh ]; then
+  source ~/.zsh/command-not-found.zsh
+fi
+
+# Fast syntax highlighting
+if [ -d ~/.zsh/fast-syntax-highlighting ]; then
+  source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+fi
+
+# autosuggestions
+if [ -d ~/.zsh/zsh-autosuggestions ]; then
+  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 fi
 
 # Based replacements
 alias code=codium
+alias vim=nvim
 alias cat=bat
 alias ls=lsd
 alias la='ls -a'
 alias ll='ls -la'
 alias lt='ls --tree'
 alias pacdiff=eos-pacdiff
-
-# Zsh Plugins
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 # Starship Prompt
 source <(/usr/bin/starship init zsh --print-full-init)
