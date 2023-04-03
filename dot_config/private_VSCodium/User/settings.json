@@ -1,0 +1,18 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "material-product-icons",
+    "editor.fontFamily": "'FuraMono Nerd Font', 'monospace', monospace",
+    "workbench.startupEditor": "none",
+    "redhat.telemetry.enabled": false,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.fontFamily": "'Hack Nerd Font'",
+    "editor.guides.bracketPairs": "active",
+    "window.titleBarStyle": "custom",
+    "editor.renderWhitespace": "trailing",
+    "catppuccin.bracketMode": "neovim",
+    "workbench.colorTheme": "Catppuccin Macchiato",
+    "git.openRepositoryInParentFolders": "always",
+    "git.confirmSync": false,
+    "editor.formatOnSave": true,
+    "catppuccin.italicKeywords": false
+}

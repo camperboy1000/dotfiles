@@ -1,0 +1,7 @@
+[user]
+	name = Jacob Highfield
+	email = camperboy1000@gmail.com
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
