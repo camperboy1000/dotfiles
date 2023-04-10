@@ -82,13 +82,13 @@ fi
 zshcache_time="$(date +%s%N)"
 autoload -Uz add-zsh-hook
 rehash_precmd() {
-    if [[ -a /var/cache/zsh/pacman ]]; then
-        local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
-        if (( zshcache_time < paccache_time )); then
-            rehash
-            zshcache_time="$paccache_time"
-        fi
+  if [[ -a /var/cache/zsh/pacman ]]; then
+    local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
+    if (( zshcache_time < paccache_time )); then
+      rehash
+      zshcache_time="$paccache_time"
     fi
+  fi
 }
 add-zsh-hook -Uz precmd rehash_precmd
 {{ end }}
@@ -99,8 +99,10 @@ if [ -f /usr/share/nvm/init-nvm.sh ]; then
 fi
 
 # Initalize FUCK
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias FUCK)"
+if [ type "$thefuck" &> /dev/null ]; then
+  eval "$(thefuck --alias)"
+  eval "$(thefuck --alias FUCK)"
+fi
 
 # Insult me when I screw up
 if [ -f ~/.zsh/command-not-found.zsh ]; then
@@ -125,9 +127,17 @@ alias ls=lsd
 alias la='ls -a'
 alias ll='ls -la'
 alias lt='ls --tree'
+
+{{ if eq .chezmoi.osRelease.id "arch" "endeavouros" }}
 alias pacdiff=eos-pacdiff
+{{ end }}
 
 # Starship Prompt
 eval "$(starship init zsh)"
 
-fastfetch
+if [ type "$fastfetch" &> /dev/null ]; then
+  fastfetch
+elif [ type "&neofetch" &> /dev/null ]; then
+  neofetch
+fi
+
