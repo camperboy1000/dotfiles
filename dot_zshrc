@@ -81,13 +81,13 @@ fi
 zshcache_time="$(date +%s%N)"
 autoload -Uz add-zsh-hook
 rehash_precmd() {
-  if [[ -a /var/cache/zsh/pacman ]]; then
-    local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
-    if (( zshcache_time < paccache_time )); then
-      rehash
-      zshcache_time="$paccache_time"
+    if [[ -a /var/cache/zsh/pacman ]]; then
+        local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
+        if (( zshcache_time < paccache_time )); then
+            rehash
+            zshcache_time="$paccache_time"
+        fi
     fi
-  fi
 }
 add-zsh-hook -Uz precmd rehash_precmd
 
@@ -97,17 +97,17 @@ eval "$(thefuck --alias FUCK)"
 
 # Insult me when I screw up
 if [ -f ~/.zsh/command-not-found.zsh ]; then
-  source ~/.zsh/command-not-found.zsh
+    source ~/.zsh/command-not-found.zsh
 fi
 
 # Fast syntax highlighting
 if [ -d ~/.zsh/fast-syntax-highlighting ]; then
-  source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+    source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 fi
 
 # autosuggestions
 if [ -d ~/.zsh/zsh-autosuggestions ]; then
-  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 fi
 
 # Based replacements
@@ -121,7 +121,7 @@ alias lt='ls --tree'
 alias pacdiff=eos-pacdiff
 
 # Starship Prompt
-source <(/usr/bin/starship init zsh --print-full-init)
+eval "$(starship init zsh)"
 source /usr/share/nvm/init-nvm.sh
 
 fastfetch
