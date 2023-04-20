@@ -14,5 +14,8 @@
     "git.openRepositoryInParentFolders": "always",
     "git.confirmSync": false,
     "editor.formatOnSave": true,
-    "catppuccin.italicKeywords": false
+    "catppuccin.italicKeywords": false,
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    }
 }
