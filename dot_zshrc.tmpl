@@ -120,20 +120,39 @@ if [ -d ~/.zsh/zsh-autosuggestions ]; then
 fi
 
 # Based replacements
-alias code=codium
-alias vim=nvim
-alias cat=bat
-alias ls=lsd
+if type "codium" > /dev/null; then
+  alias code=codium
+fi
+
+if type "nvim" > /dev/null; then
+  alias vim=nvim
+fi
+
+if type "bat" > /dev/null; then
+  alias cat=bat
+fi
+
+if type "lsd" > /dev/null; then
+  alias ls=lsd
+fi
+
 alias la='ls -a'
 alias ll='ls -la'
 alias lt='ls --tree'
 
-{{ if eq .chezmoi.osRelease.id "arch" "endeavouros" }}
+{{ if eq .chezmoi.osRelease.id "endeavouros" }}
 alias pacdiff=eos-pacdiff
 {{ end }}
 
+if [ "$TERM" = "xterm-kitty" ]; then
+  alias icat='kitty +kitten icat'
+  alias ssh='kitty +kitten ssh'
+fi
+
 # Starship Prompt
-eval "$(starship init zsh)"
+if type "starship" > /dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 if type "fastfetch" > /dev/null; then
   fastfetch
