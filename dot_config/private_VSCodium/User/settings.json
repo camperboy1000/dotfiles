@@ -1,5 +1,5 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.productIconTheme": "material-product-icons",
     "editor.fontFamily": "'FuraMono Nerd Font', 'monospace', monospace",
     "workbench.startupEditor": "none",
@@ -17,5 +17,8 @@
     "catppuccin.italicKeywords": false,
     "[dockerfile]": {
         "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    }
+    },
+    "workbench.enableExperiments": false,
+    "update.mode": "none",
+    "update.showReleaseNotes": false
 }
