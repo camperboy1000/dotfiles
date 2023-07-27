@@ -20,7 +20,13 @@
 
 # Catppuccin Theming
 
-".local/share/cursors":
+".themes":
+  type: "archive"
+  url: "https://github.com/catppuccin/gtk/releases/latest/download/Catppuccin-Macchiato-Standard-Mauve-dark.zip"
+  exact: true
+  refreshPeriod: "168h"
+
+".icons":
   type: "archive"
   url: "https://raw.githubusercontent.com/catppuccin/cursors/main/cursors/Catppuccin-Macchiato-Mauve-Cursors.zip"
   exact: true
