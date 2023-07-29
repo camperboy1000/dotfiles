@@ -18,16 +18,19 @@
   url: "https://github.com/tmux-plugins/tpm.git"
   refreshPeriod: "168h"
 
-# Catppuccin Theming
+# Ranger plugins
 
-".themes":
-  type: "archive"
-  url: "https://github.com/catppuccin/gtk/releases/latest/download/Catppuccin-Macchiato-Standard-Mauve-dark.zip"
-  exact: true
+".config/ranger/plugins/devicons2":
+  type: "git-repo"
+  url: "https://github.com/cdump/ranger-devicons2.git"
   refreshPeriod: "168h"
 
-".icons":
-  type: "archive"
-  url: "https://raw.githubusercontent.com/catppuccin/cursors/main/cursors/Catppuccin-Macchiato-Mauve-Cursors.zip"
-  exact: true
+".config/ranger/plugins/archives":
+  type: "git-repo"
+  url: "https://github.com/maximtrp/ranger-archives.git"
+  refreshPeriod: "168h"
+
+".config/ranger/plugins/fzf-filter":
+  type: "git-repo"
+  url: "https://github.com/MuXiu1997/ranger-fzf-filter.git"
   refreshPeriod: "168h"
