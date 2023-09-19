@@ -6,6 +6,7 @@ local plugins = {
 		{ import = "astrocommunity.pack.json" },
 		{ import = "astrocommunity.pack.yaml" },
 		{ import = "astrocommunity.pack.toml" },
+		{ import = "astrocommunity.pack.markdown" },
 		{ import = "astrocommunity.pack.rust" },
 		{ import = "astrocommunity.pack.python" },
 		{ import = "astrocommunity.pack.go" },
@@ -15,6 +16,13 @@ local plugins = {
 	{
 		"sunaku/tmux-navigate",
 		event = "VeryLazy",
+	},
+	{
+		"chipsenkbeil/distant.nvim",
+		branch = "v0.3",
+		config = function()
+			require("distant"):setup()
+		end,
 	},
 }
 
