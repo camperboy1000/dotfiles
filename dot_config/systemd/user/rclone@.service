@@ -13,7 +13,7 @@ Description=rclone: Remote FUSE filesystem for cloud storage config %i
 Documentation=man:rclone(1)
 After=network-online.target
 Wants=network-online.target 
-AssertPathIsDirectory=%h/mnt/%i
+AssertPathIsDirectory=%h/%i
 
 [Service]
 Type=notify
@@ -28,8 +28,8 @@ ExecStart= \
 #    --allow-other \
     # Google Drive Options
     --drive-export-formats desktop \
-    %i: %h/mnt/%i
-ExecStop=/bin/fusermount -u %h/mnt/%i
+    %i: %h/%i
+ExecStop=/bin/fusermount -u %h/%i
 
 [Install]
 WantedBy=default.target
