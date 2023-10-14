@@ -12,17 +12,11 @@ local plugins = {
 		{ import = "astrocommunity.pack.go" },
 		{ import = "astrocommunity.pack.docker" },
 		{ import = "astrocommunity.pack.ansible" },
+		{ import = "astrocommunity.media.presence-nvim" },
 	},
 	{
 		"sunaku/tmux-navigate",
 		event = "VeryLazy",
-	},
-	{
-		"chipsenkbeil/distant.nvim",
-		branch = "v0.3",
-		config = function()
-			require("distant"):setup()
-		end,
 	},
 }
 
