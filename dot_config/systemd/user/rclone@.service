@@ -27,7 +27,7 @@ ExecStart= \
 #    --umask 022 \
 #    --allow-other \
     # Google Drive Options
-    --drive-export-formats desktop \
+    --drive-export-formats link.html \
     %i: %h/%i
 ExecStop=/bin/fusermount -u %h/%i
 
