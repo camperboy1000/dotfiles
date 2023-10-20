@@ -1,3 +1,4 @@
 export EDITOR="nvim"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export QT_STYLE_OVERRIDE=kvantum
