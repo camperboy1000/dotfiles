@@ -9,7 +9,6 @@ local plugins = {
 		{ import = "astrocommunity.pack.bash" },
 		{ import = "astrocommunity.pack.rust" },
 		{ import = "astrocommunity.pack.python" },
-		{ import = "astrocommunity.pack.go" },
 		{ import = "astrocommunity.pack.docker" },
 		{ import = "astrocommunity.pack.ansible" },
 		{ import = "astrocommunity.pack.markdown" },
