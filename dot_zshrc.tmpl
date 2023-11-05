@@ -155,9 +155,9 @@ if type "starship" > /dev/null; then
   eval "$(starship init zsh)"
 fi
 
-if type "fastfetch" > /dev/null; then
-  fastfetch
-elif type "neofetch" > /dev/null; then
-  neofetch
+if type "figlet" > /dev/null && type "cowsay" > /dev/null; then
+  figlet "This is $(hostname)" | cowsay -n
+elif type "cowsay" > /dev/null; then
+  cowsay "This is $(hostname)"
 fi
 
