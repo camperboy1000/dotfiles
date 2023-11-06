@@ -156,8 +156,10 @@ if type "starship" > /dev/null; then
 fi
 
 if type "figlet" > /dev/null && type "cowsay" > /dev/null; then
+  clear
   figlet "This is $(hostname)" | cowsay -n
 elif type "cowsay" > /dev/null; then
+  clear
   cowsay "This is $(hostname)"
 fi
 
