@@ -136,14 +136,10 @@ if type "lsd" > /dev/null; then
   alias ls=lsd
 fi
 
-alias la='ls -a'
-alias ll='ls -la'
-alias lt='ls --tree'
-alias ranger='source ranger ranger'
-
-{{ if eq .chezmoi.osRelease.id "endeavouros" }}
-alias pacdiff=eos-pacdiff
-{{ end }}
+alias la="ls -a"
+alias ll="ls -la"
+alias lt="ls --tree"
+alias ranger="source ranger ranger"
 
 if [ "$TERM" = "xterm-kitty" ]; then
   alias icat='kitty +kitten icat'
@@ -155,11 +151,11 @@ if type "starship" > /dev/null; then
   eval "$(starship init zsh)"
 fi
 
-if type "figlet" > /dev/null && type "cowsay" > /dev/null; then
+if type "fastfetch" > /dev/null; then
   clear
-  figlet "This is $(hostname)" | cowsay -n
-elif type "cowsay" > /dev/null; then
+  fastfetch
+elif type "neofetch" > /dev/null; then
   clear
-  cowsay "This is $(hostname)"
+  neofetch
 fi
 
